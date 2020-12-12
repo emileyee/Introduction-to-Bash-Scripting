@@ -13,3 +13,26 @@ temp_f2=$(echo "scale=2; $temp_f - 32" | bc)
 temp_c=$(echo "scale=2; $temp_f2 * 5 / 9" | bc)
 # Print the temp
 echo $temp_c
+
+# Create three variables from the temp data files' contents
+temp_a=$(cat temps/region_A)
+temp_b=$(cat temps/region_B)
+temp_c=$(cat temps/region_C)
+# Print out the three variables
+echo "The three temperatures were $temp_a, $temp_b, and $temp_c"
+
+# Create a normal array with the mentioned elements
+capital_cities=("Sydney" "New York" "Paris")
+
+# Create a normal array with the mentioned elements using the declare method
+declare -a capital_cities
+# Add (append) the elements
+capital_cities=('Sydney' 'New York' 'Paris');
+echo ${capital_cities[@]}
+
+# The array has been created for you
+capital_cities=("Sydney" "New York" "Paris")
+# Print out the entire array
+echo ${capital_cities[@]}
+# Print out the array length
+echo ${#capital_cities[@]}
