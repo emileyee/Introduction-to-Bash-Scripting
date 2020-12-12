@@ -10,3 +10,11 @@ fi
 if [ $accuracy -lt 90 ]; then
     mv $1 bad_models/
 fi
+
+# Create variable from first ARGV element
+sfile=$1 #NEED TO RUN BASH SCRIPTING
+# Create an IF statement on first ARGV element's contents
+if grep -q 'SRVM_' $sfile && grep -q 'vpt' $sfile ; then
+	# Move file if matched
+	mv $sfile good_logs/;
+fi
