@@ -9,7 +9,7 @@ function upload_to_cloud () {
 }
 # Call the function
 upload_to_cloud
-
+----------------------------------------------------------------------------------------------------------
 # Create function
 function what_day_is_it () {
   # Parse the results of date
@@ -19,7 +19,7 @@ function what_day_is_it () {
 }
 # Call the function
 what_day_is_it
-
+----------------------------------------------------------------------------------------------------------
 # Create a function
 function get_number_wins () {
   # Filter aggregate results by argument
@@ -29,3 +29,21 @@ function get_number_wins () {
 get_number_wins "Etar"
 # Print out the global variable
 echo "The aggregated stats are: $win_stats"
+----------------------------------------------------------------------------------------------------------
+#Summing an array with 14 12 23.5 16 19.34 which should sum to 84.84
+# Create a function with a local base variable
+function sum_array () {
+  local sum=0
+  # Loop through, adding to base variable
+  for number in "$@"
+  do
+    sum=$(echo "$number + $sum" | bc)
+  done
+  # Echo back the result
+  echo $sum
+  }
+# Call function with array
+test_array=(14 12 23.5 16 19.34)
+total=$(sum_array "${test_array[@]}")
+echo "The sum of the test array is $total"
+----------------------------------------------------------------------------------------------------------
