@@ -30,7 +30,7 @@ get_number_wins "Etar"
 # Print out the global variable
 echo "The aggregated stats are: $win_stats"
 ----------------------------------------------------------------------------------------------------------
-#Summing an array with 14 12 23.5 16 19.34 which should sum to 84.84
+# Summing an array with 14 12 23.5 16 19.34 which should sum to 84.84
 # Create a function with a local base variable
 function sum_array () {
   local sum=0
@@ -47,3 +47,10 @@ test_array=(14 12 23.5 16 19.34)
 total=$(sum_array "${test_array[@]}")
 echo "The sum of the test array is $total"
 ----------------------------------------------------------------------------------------------------------
+# Creating cronjobs
+# Create a schedule for 30 minutes past 2am every day
+30 2 * * * bash script1.sh
+# Create a schedule for every 15, 30 and 45 minutes past the hour
+15,30,45 * * * * bash script2.sh
+# Create a schedule for 11.30pm on Sunday evening, every week
+30 23 * * 7 bash script3.sh
